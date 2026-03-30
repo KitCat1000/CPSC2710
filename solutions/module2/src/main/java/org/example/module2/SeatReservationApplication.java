@@ -1,4 +1,15 @@
+/*
+ * Project: Module 2
+ * Author: Nicole Tressler
+ * Email: nit0005@auburn.edu
+ * Date: 2026 - 03 - 29
+ * Description: Flight reservation app
+ */
+
 package org.example.module2;
+
+import org.example.module2.SeatReservation;
+
 
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -10,6 +21,9 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import java.time.LocalDate;
+import javafx.scene.layout.HBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 
 public class SeatReservationApplication extends Application {
 
@@ -31,11 +45,12 @@ public class SeatReservationApplication extends Application {
         seatReservation = new SeatReservation();
         seatReservation.setFlightDesignator("AA100");
         seatReservation.setFlightDate(LocalDate.now());
-        seatReservation.setFirstName("John");
-        seatReservation.setLastName("Osho");
+        seatReservation.setFirstName("Nicole");
+        seatReservation.setLastName("Tressler");
         seatReservation.setNumberOfBags(2);
         seatReservation.makeNotFlyingWithInfant();
         seatReservation.makeNotFlyingWithTravelInsurance();
+
 
         // Create the GUI
         BorderPane root = createGUI();
@@ -188,8 +203,6 @@ public class SeatReservationApplication extends Application {
 
         } catch (IllegalArgumentException e) {
             System.out.println("Error: " + e.getMessage());
-        } catch (NumberFormatException e) {
-            System.out.println("Error: Number of Bags must be a valid integer");
         }
     }
 
