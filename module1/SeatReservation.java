@@ -1,3 +1,11 @@
+/*
+* Project: Module2
+* Author: Nicole Tressler
+* Email: nit0005@auburn.edu
+* Date: 2026 - 03 - 29
+* Description: Flight Reservation App
+ */
+
 public class SeatReservation {
    
    private String flightDesignator;
