@@ -13,6 +13,8 @@ package org.example.module3;
 import java.io.*;
 import java.util.*;
 
+
+
 public class Airport {
 
     private String ident;
@@ -315,5 +317,14 @@ public class Airport {
                 ", name='" + name + '\'' +
                 ", iataCode='" + iataCode + '\'' +
                 '}';
+    }
+    public static void main(String[] args) throws IOException {
+        List<Airport> airports = Airport.readAll();
+        System.out.println("Loaded " + airports.size() + " airports");
+
+        // Print first 5 airports
+        for (int i = 0; i < Math.min(5, airports.size()); i++) {
+            System.out.println(airports.get(i));
+        }
     }
 }
