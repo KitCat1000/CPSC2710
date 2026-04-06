@@ -210,20 +210,17 @@ public class Airport {
     /**
      * Helper method to parse a single CSV line into an Airport object.
      *
-     * CSV format:
-     * ident,type,name,elevation_ft,continent,iso_country,iso_region,municipality,
-     * gps_code,iata_code,local_code,coordinates
-     *
      * @param line A single line from the CSV file
      * @return An Airport object, or null if parsing fails
      */
+
     private static Airport parseAirportFromCSV(String line) {
         try {
             // Split by comma, but handle quoted fields
             String[] fields = parseCSVLine(line);
 
-            if (fields.length < 12) {
-                return null; // Invalid line
+            if (fields.length < 13) {
+                return null; // Invalid line - need 13 fields
             }
 
             Airport airport = new Airport();
@@ -245,18 +242,20 @@ public class Airport {
             airport.setIsoCountry(fields[5].trim());
             airport.setIsoRegion(fields[6].trim());
             airport.setMunicipality(fields[7].trim());
+
+            // Note: fields[8] is icao_code (we skip this)
             airport.setGpsCode(fields[8].trim().isEmpty() ? null : fields[8].trim());
+
             airport.setIataCode(fields[9].trim().isEmpty() ? null : fields[9].trim());
-            airport.setLocalCode(fields[10].trim().isEmpty() ? null : fields[10].trim());
 
-            // Parse coordinates (format: "[-125.243652, 49.969300]")
-            String coordinates = fields[11].trim();
-            System.out.println("DEBUG: Field 11 (coordinates): '" + coordinates + "'");
+            // Note: fields[10] is gps_code (we already have this above)
+            airport.setLocalCode(fields[11].trim().isEmpty() ? null : fields[11].trim());
 
+            // Parse coordinates from field 12
+            // Format: "40.070985, -74.933689" (with quotes and space)
+            String coordinates = fields[12].trim();
             if (!coordinates.isEmpty()) {
                 parseCoordinates(airport, coordinates);
-            } else {
-                System.out.println("DEBUG: Coordinates field is empty for airport: " + airport.getIdent());
             }
 
             return airport;
@@ -295,34 +294,22 @@ public class Airport {
     /**
      * Helper method to parse latitude and longitude from the coordinates field.
      * Format: "[-125.243652, 49.969300]"
-     * Note: CSV format has longitude first, then latitude
+     *
      */
-    public static void parseCoordinates(Airport airport, String coordinates) {
+    private static void parseCoordinates(Airport airport, String coordinates) {
         try {
-            System.out.println("DEBUG: Raw coordinates string: " + coordinates);
-
-            // Remove brackets and whitespace
-            String clean = coordinates.replace("[", "").replace("]", "").trim();
-            System.out.println("DEBUG: Cleaned coordinates: " + clean);
-
+            // Remove quotes and whitespace
+            String clean = coordinates.replace("\"", "").trim();
             String[] parts = clean.split(",");
-            System.out.println("DEBUG: Parts length: " + parts.length);
 
             if (parts.length == 2) {
-                // CSV format: longitude first, then latitude
-                double lon = Double.parseDouble(parts[0].trim());
-                double lat = Double.parseDouble(parts[1].trim());
-
-                System.out.println("DEBUG: Parsed lat=" + lat + ", lon=" + lon);
-
-                airport.setLongitude(lon);
-                airport.setLatitude(lat);
+                // NEW FORMAT: latitude first, then longitude
+                airport.setLatitude(Double.parseDouble(parts[0].trim()));
+                airport.setLongitude(Double.parseDouble(parts[1].trim()));
             }
         } catch (Exception e) {
             System.err.println("Error parsing coordinates: " + coordinates);
-            e.printStackTrace();
         }
-
     }
 
     

@@ -19,7 +19,7 @@ import java.util.List;
 
 public class AirportController {
 
-    //FXML Injected Fields ====================
+    //FXML Injected Fields
     // Search Fields
     @FXML
     private TextField identField;
@@ -57,10 +57,10 @@ public class AirportController {
     @FXML
     private Button searchButton;
 
-    // ==================== Data Fields ====================
+    //Data Fields
     private List<Airport> airports;
 
-    // ==================== Initialization ====================
+    //Initialization
 
     /**
      * Called automatically when the FXML file loads.
@@ -78,7 +78,7 @@ public class AirportController {
             setupSearchButtonListener();
 
             // Initialize the map with a default message
-            mapView.setText("Map will display here - enter airport code and search");
+            mapView.setText("🗺️ Map will display here - enter airport code and search");
         } catch (IOException e) {
             System.err.println("Error initializing controller: " + e.getMessage());
             e.printStackTrace();
@@ -88,7 +88,7 @@ public class AirportController {
         }
     }
 
-    // ==================== Event Listeners ====================
+    //Event Listeners
 
     /**
      * When the user presses Enter in any search field, perform a search.
@@ -106,7 +106,7 @@ public class AirportController {
         searchButton.setOnAction(e -> searchAirport());
     }
 
-    // ==================== Search Logic ====================
+    //Search Logic
 
     /**
      * Searches for an airport based on the first non-blank search field.
@@ -179,12 +179,9 @@ public class AirportController {
 
         // Update map if we have coordinates
         if (airport.getLatitude() != null && airport.getLongitude() != null) {
-            String mapText = String.format("Map centered at: %.6f, %.6f",
-                    airport.getLatitude(), airport.getLongitude());
-            mapView.setText(mapText);
-            System.out.println(mapText);
+            loadMapView(airport.getLatitude(), airport.getLongitude());
         } else {
-            mapView.setText("No coordinates available for this airport");
+            mapView.setText("No coordinates available for: " + airport.getName());
         }
     }
 
@@ -200,17 +197,30 @@ public class AirportController {
         municipalityField.clear();
     }
 
-    // ==================== Map Display ====================
+    //Map Display
 
     /**
      * Loads a map view display with coordinates.
+     * Shows the Windy.com URL that would be used to display the map.
      *
      * @param latitude The latitude of the airport
      * @param longitude The longitude of the airport
      */
     private void loadMapView(double latitude, double longitude) {
-        String mapText = String.format("Map centered at: %.6f, %.6f", latitude, longitude);
+        int zoomLevel = 12;
+        String url = String.format("https://www.windy.com/?%.6f,%.6f,%d",
+                latitude, longitude, zoomLevel);
+
+        // Format the map display text with coordinates and URL
+        String mapText = String.format(
+                "📍 AIRPORT MAP LOCATION\n\n" +
+                        "Latitude:  %.6f\n" +
+                        "Longitude: %.6f\n" +
+                        "Zoom Level: %d\n\n" +
+                        "Windy.com Weather Map:\n%s",
+                latitude, longitude, zoomLevel, url);
+
         mapView.setText(mapText);
-        System.out.println(mapText);
+        System.out.println("Map URL: " + url);
     }
 }

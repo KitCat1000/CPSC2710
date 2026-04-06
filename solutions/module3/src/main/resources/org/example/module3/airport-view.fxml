@@ -8,10 +8,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
 
-
-
-<BorderPane fx:controller="org.example.module3.AirportController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane fx:controller="org.example.module3.AirportController" minHeight="600.0" minWidth="900.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
     <top>
         <Label text="Nicole Tressler's Airport Mapview App" BorderPane.alignment="CENTER">
             <font>
@@ -20,103 +19,62 @@
         </Label>
     </top>
     <left>
-        <VBox prefHeight="200.0" prefWidth="350.0" spacing="10.0" BorderPane.alignment="CENTER">
+        <VBox prefWidth="350.0" spacing="10.0" BorderPane.alignment="CENTER">
             <padding>
                 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </padding>
-            <children>
-                <!-- Search Fields Section -->
-                <Label text="Search Fields">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-
-                <!-- Ident Field -->
-                <HBox spacing="5.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Ident:" />
-                        <TextField fx:id="identField" />
-                    </children>
-                </HBox>
-
-                <!-- IATA Code Field -->
-                <HBox spacing="5.0">
-                    <children>
-                        <Label prefWidth="100.0" text="IATA Code:" />
-                        <TextField fx:id="iataCodeField" />
-                    </children>
-                </HBox>
-
-                <!-- Local Code Field -->
-                <HBox spacing="5.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Local Code:" />
-                        <TextField fx:id="localCodeField" />
-                    </children>
-                </HBox>
-
-                <!-- Search Button -->
-                <Button fx:id="searchButton" mnemonicParsing="false" prefWidth="100.0" text="Search" />
-
-                <!-- Airport Information Section -->
-                <Label text="Airport Information">
-                    <font>
-                        <Font name="System Bold" size="16.0" />
-                    </font>
-                </Label>
-
-                <!-- Type Field -->
-                <HBox spacing="5.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Type:" />
-                        <TextField fx:id="typeField" editable="false" />
-                    </children>
-                </HBox>
-
-                <!-- Name Field -->
-                <HBox spacing="5.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Name:" />
-                        <TextField fx:id="nameField" editable="false" />
-                    </children>
-                </HBox>
-
-                <!-- Elevation Field -->
-                <HBox spacing="5.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Elevation:" />
-                        <TextField fx:id="elevationField" editable="false" />
-                    </children>
-                </HBox>
-
-                <!-- Country Field -->
-                <HBox spacing="5.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Country:" />
-                        <TextField fx:id="countryField" editable="false" />
-                    </children>
-                </HBox>
-
-                <!-- Region Field -->
-                <HBox spacing="5.0">
-                    <children>
-                        <Label prefWidth="100.0" text="Region:" />
-                        <TextField fx:id="regionField" editable="false" />
-                    </children>
-                </HBox>
-
-                <!-- Municipality Field -->
-                <HBox spacing="5.0" VBox.vgrow="ALWAYS">
-                    <children>
-                        <Label prefWidth="100.0" text="Municipality:" />
-                        <TextField fx:id="municipalityField" editable="false" />
-                    </children>
-                </HBox>
-            </children>
+            <Label text="Search Fields">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+            <HBox spacing="5.0">
+                <Label prefWidth="100.0" text="Ident:" />
+                <TextField fx:id="identField" />
+            </HBox>
+            <HBox spacing="5.0">
+                <Label prefWidth="100.0" text="IATA Code:" />
+                <TextField fx:id="iataCodeField" />
+            </HBox>
+            <HBox spacing="5.0">
+                <Label prefWidth="100.0" text="Local Code:" />
+                <TextField fx:id="localCodeField" />
+            </HBox>
+            <Button fx:id="searchButton" text="Search" />
+            <Label text="Airport Information">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+            <HBox spacing="5.0">
+                <Label prefWidth="100.0" text="Type:" />
+                <TextField fx:id="typeField" editable="false" />
+            </HBox>
+            <HBox spacing="5.0">
+                <Label prefWidth="100.0" text="Name:" />
+                <TextField fx:id="nameField" editable="false" />
+            </HBox>
+            <HBox spacing="5.0">
+                <Label prefWidth="100.0" text="Elevation:" />
+                <TextField fx:id="elevationField" editable="false" />
+            </HBox>
+            <HBox spacing="5.0">
+                <Label prefWidth="100.0" text="Country:" />
+                <TextField fx:id="countryField" editable="false" />
+            </HBox>
+            <HBox spacing="5.0">
+                <Label prefWidth="100.0" text="Region:" />
+                <TextField fx:id="regionField" editable="false" />
+            </HBox>
+            <HBox spacing="5.0" VBox.vgrow="ALWAYS">
+                <Label prefWidth="100.0" text="Municipality:" />
+                <TextField fx:id="municipalityField" editable="false" />
+            </HBox>
         </VBox>
     </left>
     <center>
-        <Label fx:id="mapView" alignment="CENTER" style="-fx-border-color: #cccccc;" BorderPane.alignment="CENTER" />
+        <Label fx:id="mapView" wrapText="true" alignment="TOP_CENTER"
+               style="-fx-font-size: 14; -fx-padding: 20; -fx-border-color: #cccccc; -fx-border-width: 1;"
+               BorderPane.alignment="CENTER" />
     </center>
 </BorderPane>
