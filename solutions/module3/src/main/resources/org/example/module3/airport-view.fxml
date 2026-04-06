@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.web.webView?>
+
 
 
 <BorderPane fx:controller="org.example.module3.AirportController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="900.0" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1">
@@ -117,6 +117,6 @@
         </VBox>
     </left>
     <center>
-        <Label text="Map will display here" BorderPane.alignment="CENTER" />
+        <Label fx:id="mapView" alignment="CENTER" style="-fx-border-color: #cccccc;" BorderPane.alignment="CENTER" />
     </center>
 </BorderPane>

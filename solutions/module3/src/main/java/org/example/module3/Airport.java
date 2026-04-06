@@ -251,8 +251,12 @@ public class Airport {
 
             // Parse coordinates (format: "[-125.243652, 49.969300]")
             String coordinates = fields[11].trim();
+            System.out.println("DEBUG: Field 11 (coordinates): '" + coordinates + "'");
+
             if (!coordinates.isEmpty()) {
                 parseCoordinates(airport, coordinates);
+            } else {
+                System.out.println("DEBUG: Coordinates field is empty for airport: " + airport.getIdent());
             }
 
             return airport;
@@ -293,20 +297,32 @@ public class Airport {
      * Format: "[-125.243652, 49.969300]"
      * Note: CSV format has longitude first, then latitude
      */
-    private static void parseCoordinates(Airport airport, String coordinates) {
+    public static void parseCoordinates(Airport airport, String coordinates) {
         try {
+            System.out.println("DEBUG: Raw coordinates string: " + coordinates);
+
             // Remove brackets and whitespace
             String clean = coordinates.replace("[", "").replace("]", "").trim();
+            System.out.println("DEBUG: Cleaned coordinates: " + clean);
+
             String[] parts = clean.split(",");
+            System.out.println("DEBUG: Parts length: " + parts.length);
 
             if (parts.length == 2) {
                 // CSV format: longitude first, then latitude
-                airport.setLongitude(Double.parseDouble(parts[0].trim()));
-                airport.setLatitude(Double.parseDouble(parts[1].trim()));
+                double lon = Double.parseDouble(parts[0].trim());
+                double lat = Double.parseDouble(parts[1].trim());
+
+                System.out.println("DEBUG: Parsed lat=" + lat + ", lon=" + lon);
+
+                airport.setLongitude(lon);
+                airport.setLatitude(lat);
             }
         } catch (Exception e) {
             System.err.println("Error parsing coordinates: " + coordinates);
+            e.printStackTrace();
         }
+
     }
 
     
@@ -327,4 +343,6 @@ public class Airport {
             System.out.println(airports.get(i));
         }
     }
+
+
 }
