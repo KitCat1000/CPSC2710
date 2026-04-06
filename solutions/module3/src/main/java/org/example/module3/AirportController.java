@@ -211,7 +211,7 @@ public class AirportController {
         String url = String.format("https://www.windy.com/?%.6f,%.6f,%d",
                 latitude, longitude, zoomLevel);
 
-        // Format the map display text with coordinates and URL
+        // Format the map display text with coordinates first, then URL
         String mapText = String.format(
                 "📍 AIRPORT MAP LOCATION\n\n" +
                         "Latitude:  %.6f\n" +
