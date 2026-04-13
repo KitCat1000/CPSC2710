@@ -1,14 +1,9 @@
 /*
-* Project: Module4 Assignment - Flight Schedule Application
-*
-* Author: Nicole Tressler
-*
-* Email: Nit0005@auburn.edu
-*
-* Date 07 - 04 - 2026
-*
-* Description: A complete application for editing airline flights and information,
-*           including a file-based database so that it's data is persistent between runs.
+ * Project: Module 4 - Airline Flight Designator Application
+ * Author: Nicole Tressler
+ * Email: Nit0005@auburn.edu
+ * Date: April 7 2026
+ * Description: Database class for managing airline scheduled flights
  */
 
 

@@ -1,9 +1,9 @@
 /*
  * Project: Module 4 - Airline Flight Designator Application
  * Author: Nicole Tressler
- * Email: nit0005@auburn.edu
- * Date: 10 - 04 - 2026
- * Description: FXML Controller for the Flight Schedule UI
+ * Email: Nit0005@auburn.edu
+ * Date: April 7 2026
+ * Description: Database class for managing airline scheduled flights
  */
 
 package com.airline;

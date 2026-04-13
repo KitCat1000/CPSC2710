@@ -1,8 +1,8 @@
 /*
  * Project: Module 4 - Airline Flight Designator Application
- * Author: [Your Name]
- * Email: [Your Auburn Email]
- * Date: April 2026
+ * Author: Nicole Tressler
+ * Email: Nit0005@auburn.edu
+ * Date: April 7 2026
  * Description: Database class for managing airline scheduled flights
  */
 
