@@ -159,11 +159,16 @@ public class FlightScheduleController implements Initializable {
         arrivalAirportField.setText(flight.getArrivalAirportIdent());
         arrivalTimeField.setText(flight.getArrivalTime().toString());
 
-        // Set day buttons
-        for (DayOfWeek day : DayOfWeek.values()) {
+        // IMPORTANT: Clear all buttons FIRST before setting selected ones
+        for (ToggleButton btn : dayButtons.values()) {
+            btn.setSelected(false);
+        }
+
+        // Then set only the days that this flight has
+        for (DayOfWeek day : flight.getDaysOfWeek()) {
             ToggleButton btn = dayButtons.get(day);
             if (btn != null) {
-                btn.setSelected(flight.getDaysOfWeek().contains(day));
+                btn.setSelected(true);
             }
         }
 
@@ -179,7 +184,7 @@ public class FlightScheduleController implements Initializable {
         arrivalAirportField.clear();
         arrivalTimeField.clear();
 
-        // Clear day selections
+        // Clear all day selections
         for (ToggleButton btn : dayButtons.values()) {
             btn.setSelected(false);
         }
@@ -211,13 +216,15 @@ public class FlightScheduleController implements Initializable {
             String arrivalAirport = arrivalAirportField.getText().trim();
             LocalTime arrivalTime = LocalTime.parse(arrivalTimeField.getText().trim());
 
-            // Get selected days
+            // Get selected days - ONLY include days where button is selected
             Set<DayOfWeek> daysOfWeek = new HashSet<>();
-            for (Map.Entry<DayOfWeek, ToggleButton> entry : dayButtons.entrySet()) {
-                if (entry.getValue().isSelected()) {
-                    daysOfWeek.add(entry.getKey());
-                }
-            }
+            if (mondayButton.isSelected()) daysOfWeek.add(DayOfWeek.MONDAY);
+            if (tuesdayButton.isSelected()) daysOfWeek.add(DayOfWeek.TUESDAY);
+            if (wednesdayButton.isSelected()) daysOfWeek.add(DayOfWeek.WEDNESDAY);
+            if (thursdayButton.isSelected()) daysOfWeek.add(DayOfWeek.THURSDAY);
+            if (fridayButton.isSelected()) daysOfWeek.add(DayOfWeek.FRIDAY);
+            if (saturdayButton.isSelected()) daysOfWeek.add(DayOfWeek.SATURDAY);
+            if (sundayButton.isSelected()) daysOfWeek.add(DayOfWeek.SUNDAY);
 
             if (daysOfWeek.isEmpty()) {
                 showError("Please select at least one day of operation");
