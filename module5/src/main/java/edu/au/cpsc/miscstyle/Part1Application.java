@@ -20,8 +20,10 @@ public class Part1Application extends Application {
 
   @Override
   public void start(Stage stage) throws IOException {
-    FXMLLoader fxmlLoader = new FXMLLoader(Part1Application.class.getResource("../../../../../../../../../../Downloads/part1.fxml"));
-    Scene scene = new Scene(fxmlLoader.load());
+      FXMLLoader fxmlLoader = new FXMLLoader(
+              Part1Application.class.getResource("/edu/au/cpsc/miscstyle/part1.fxml")
+      );
+      Scene scene = new Scene(fxmlLoader.load());
     stage.setTitle("Nicole Tressler's Flight Designator App");
     stage.setScene(scene);
     stage.show();

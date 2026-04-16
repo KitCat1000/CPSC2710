@@ -1,0 +1,51 @@
+.background {
+    -fx-background-color: #dad7cd;
+}
+
+.foreground {
+    -fx-fill: #272838;
+}
+
+.highlight {
+    -fx-fill: #ff6b6b;
+}
+
+.accent {
+    -fx-fill: #7e7f9a;
+}
+
+/* Transparent rectangle with border (no visible border based on target image) */
+Group Rectangle {
+    -fx-fill: transparent !important;
+    -fx-stroke: transparent !important;
+}
+
+/* Circle behind rectangle */
+Group Circle {
+    -fx-fill: #7e7f9a !important;
+}
+
+.hyperlink {
+    -fx-text-fill: #ff6b6b;
+    -fx-underline: true;
+}
+
+.hyperlink:visited {
+    -fx-text-fill: #272838;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #ff6b6b;
+}
+
+.combo-box .arrow {
+    -fx-background-color: white;
+}
+
+.check-box .mark {
+    -fx-background-color: #7e7f9a;
+}
+
+#button-row {
+    -fx-alignment: center-right;
+}
