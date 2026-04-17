@@ -1,51 +1,69 @@
-.background {
-    -fx-background-color: #dad7cd;
+/* Import custom font */
+@font-face {
+    src: url("fonts/Macondo-Regular.ttf");
+    -fx-font-family: "Macondo";
 }
 
-.foreground {
-    -fx-fill: #272838;
+/* Root GridPane - add background image */
+GridPane {
+    -fx-background-image: url("images/backgroundimage.jpg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+    -fx-background-color: #f0f0f0;
 }
 
-.highlight {
-    -fx-fill: #ff6b6b;
+/* All buttons - make semi-transparent */
+Button {
+    -fx-opacity: 0.85;
+    -fx-padding: 20;
+    -fx-font-size: 16;
+    -fx-text-fill: white;
+    -fx-background-color: #333333;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
 }
 
-.accent {
-    -fx-fill: #7e7f9a;
+Button:hover {
+    -fx-opacity: 1.0;
 }
 
-/* Transparent rectangle with border (no visible border based on target image) */
-Group Rectangle {
-    -fx-fill: transparent !important;
-    -fx-stroke: transparent !important;
+/* Top two buttons - use custom font and larger size */
+#airports-btn,
+#seat-reservation-btn {
+    -fx-font-family: "Macondo";
+    -fx-font-size: 18;
+    -fx-font-weight: bold;
 }
 
-/* Circle behind rectangle */
-Group Circle {
-    -fx-fill: #7e7f9a !important;
+/* Button-specific styling with icons */
+#airports-btn {
+    -fx-background-image: url("images/image1.jpg");
+    -fx-background-size: 40 40;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #FF6B6B;
 }
 
-.hyperlink {
-    -fx-text-fill: #ff6b6b;
-    -fx-underline: true;
+#seat-reservation-btn {
+    -fx-background-image: url("images/image2.jpg");
+    -fx-background-size: 40 40;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #4ECDC4;
 }
 
-.hyperlink:visited {
-    -fx-text-fill: #272838;
+#flight-schedule-btn {
+    -fx-background-image: url("images/image3.jpg");
+    -fx-background-size: 40 40;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #45B7D1;
 }
 
-.combo-box .arrow-button {
-    -fx-background-color: #ff6b6b;
-}
-
-.combo-box .arrow {
-    -fx-background-color: white;
-}
-
-.check-box .mark {
-    -fx-background-color: #7e7f9a;
-}
-
-#button-row {
-    -fx-alignment: center-right;
+#aircraft-btn {
+    -fx-background-image: url("images/image4.jpg");
+    -fx-background-size: 40 40;
+    -fx-background-position: center;
+    -fx-background-repeat: no-repeat;
+    -fx-background-color: #FFA07A;
 }
