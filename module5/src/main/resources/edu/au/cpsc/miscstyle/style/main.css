@@ -1,37 +1,53 @@
-/* All buttons */
-Button {
-    -fx-opacity: 0.85;
-    -fx-padding: 20;
-    -fx-font-size: 16;
-    -fx-text-fill: white;
-    -fx-background-color: #333333;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
+.background {
+    -fx-background-color: #dad7cd;
 }
 
-Button:hover {
-    -fx-opacity: 1.0;
+.foreground {
+    -fx-fill: #272838;
 }
 
-/* Top two buttons */
-#airportsBtn,
-#seatReservationBtn {
-    -fx-font-size: 18;
+.highlight {
+    -fx-fill: #ff6b6b;
 }
 
-/* Button-specific styling */
-#airportsBtn {
-    -fx-background-color: #FF6B6B;
+.accent {
+    -fx-fill: #7e7f9a;
 }
 
-#seatReservationBtn {
-    -fx-background-color: #4ECDC4;
+/* Transparent rectangle with border - ONLY in the Group in center */
+Group Rectangle {
+    -fx-fill: transparent !important;
+    -fx-stroke: rgb(70, 155, 75) !important;
+    -fx-stroke-width: 5;
+    -fx-stroke-type: inside;
 }
 
-#flightScheduleBtn {
-    -fx-background-color: #45B7D1;
+/* Circle behind rectangle */
+Group Circle {
+    -fx-fill: #7e7f9a !important;
 }
 
-#aircraftBtn {
-    -fx-background-color: #FFA07A;
+.hyperlink {
+    -fx-text-fill: #ff6b6b;
+    -fx-underline: true;
+}
+
+.hyperlink:visited {
+    -fx-text-fill: #272838;
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: #ff6b6b;
+}
+
+.combo-box .arrow {
+    -fx-background-color: white;
+}
+
+.check-box .mark {
+    -fx-background-color: #7e7f9a;
+}
+
+#button-row {
+    -fx-alignment: center-right;
 }

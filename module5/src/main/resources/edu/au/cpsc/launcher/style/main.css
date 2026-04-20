@@ -1,37 +1,22 @@
 /* All buttons */
 Button {
-    -fx-opacity: 0.85;
     -fx-padding: 20;
     -fx-font-size: 16;
-    -fx-text-fill: white;
-    -fx-background-color: #333333;
+    -fx-text-fill: #333333;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 }
 
 Button:hover {
-    -fx-opacity: 1.0;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Top two buttons */
+/* Top two buttons - use custom font */
 #airportsBtn,
 #seatReservationBtn {
+    -fx-font-family: "Macondo";
     -fx-font-size: 18;
-}
-
-/* Button-specific styling */
-#airportsBtn {
-    -fx-background-color: #FF6B6B;
-}
-
-#seatReservationBtn {
-    -fx-background-color: #4ECDC4;
-}
-
-#flightScheduleBtn {
-    -fx-background-color: #45B7D1;
-}
-
-#aircraftBtn {
-    -fx-background-color: #FFA07A;
+    -fx-font-weight: bold;
 }
