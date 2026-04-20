@@ -1,4 +1,6 @@
 /* All buttons */
+
+
 Button {
     -fx-padding: 20;
     -fx-font-size: 16;
@@ -8,6 +10,7 @@ Button {
     -fx-border-radius: 8;
     -fx-background-radius: 8;
 }
+
 
 Button:hover {
     -fx-background-color: rgba(255, 255, 255, 0.1);
