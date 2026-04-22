@@ -51,7 +51,7 @@
                         </Text>
                      </children>
                   </Group>
-                  <ImageView fx:id="secretOverlayImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                   <ImageView fx:id="secretOverlapImageView" fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@img.png" />
                      </image>
