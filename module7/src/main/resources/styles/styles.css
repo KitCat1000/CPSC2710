@@ -1,0 +1,355 @@
+/* Recipe Vault - Custom Stylesheet */
+/* Green (#1B5E20) and Dark Brown (#2C2416) with Golden Yellow (#FFD700) Theme */
+
+/* Root styling */
+.root {
+    -fx-font-family: "Georgia", "Times New Roman", serif;
+    -fx-base: #1B5E20;
+    -fx-font-size: 13;
+}
+
+/* Main background colors */
+.main-background {
+    -fx-background-color: #1B5E20;
+}
+
+.dark-background {
+    -fx-background-color: #2C2416;
+}
+
+.light-background {
+    -fx-background-color: #F4E4A6;
+}
+
+/* Header and title styling */
+.header {
+    -fx-background-color: #1B5E20;
+    -fx-text-fill: #FFD700;
+    -fx-padding: 20;
+}
+
+.header-label {
+    -fx-text-fill: #FFD700;
+    -fx-font-size: 32;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia", serif;
+}
+
+.subtitle-label {
+    -fx-text-fill: #C9A961;
+    -fx-font-size: 14;
+    -fx-font-style: italic;
+}
+
+.recipe-title {
+    -fx-text-fill: #FFD700;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+}
+
+.section-title {
+    -fx-text-fill: #1B5E20;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+}
+
+/* Menu styling */
+.menu-bar {
+    -fx-background-color: #2C2416;
+    -fx-text-fill: #FFD700;
+}
+
+.menu {
+    -fx-text-fill: #FFD700;
+}
+
+.menu:hover {
+    -fx-background-color: #1B5E20;
+}
+
+.menu-item {
+    -fx-padding: 8;
+    -fx-text-fill: #FFD700;
+    -fx-background-color: #2C2416;
+}
+
+.menu-item:focused {
+    -fx-background-color: #1B5E20;
+    -fx-text-fill: #FFD700;
+}
+
+.menu-item:hover {
+    -fx-background-color: #1B5E20;
+}
+
+/* Primary Button styling - Golden Yellow */
+.button {
+    -fx-padding: 12 25 12 25;
+    -fx-font-size: 13;
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #1B5E20;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-cursor: hand;
+    -fx-font-weight: bold;
+    -fx-font-family: "Georgia", serif;
+}
+
+.button:hover {
+    -fx-background-color: #FFC700;
+}
+
+.button:pressed {
+    -fx-background-color: #FFB700;
+}
+
+.button:focused {
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+}
+
+/* Action buttons */
+#addRecipeBtn {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #1B5E20;
+}
+
+#addRecipeBtn:hover {
+    -fx-background-color: #FFC700;
+}
+
+#editRecipeBtn {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #1B5E20;
+}
+
+#editRecipeBtn:hover {
+    -fx-background-color: #FFC700;
+}
+
+#deleteRecipeBtn {
+    -fx-background-color: #D4502F;
+    -fx-text-fill: white;
+}
+
+#deleteRecipeBtn:hover {
+    -fx-background-color: #B83E23;
+}
+
+#uploadImageBtn {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #1B5E20;
+}
+
+#saveRecipeBtn {
+    -fx-background-color: #FFD700;
+    -fx-text-fill: #1B5E20;
+}
+
+#cancelBtn {
+    -fx-background-color: #B8A898;
+    -fx-text-fill: white;
+}
+
+#cancelBtn:hover {
+    -fx-background-color: #9B8E82;
+}
+
+/* TextField and TextArea styling */
+.text-field {
+    -fx-padding: 10;
+    -fx-border-color: #C9A961;
+    -fx-border-width: 2;
+    -fx-background-color: #F4E4A6;
+    -fx-font-size: 12;
+    -fx-text-fill: #1B5E20;
+}
+
+.text-field:focused {
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-background-color: #F4E4A6;
+}
+
+.text-field::placeholder {
+    -fx-text-fill: #8B7355;
+}
+
+.text-area {
+    -fx-padding: 10;
+    -fx-border-color: #C9A961;
+    -fx-border-width: 2;
+    -fx-background-color: #F4E4A6;
+    -fx-font-family: "Georgia", serif;
+    -fx-font-size: 12;
+    -fx-text-fill: #1B5E20;
+}
+
+.text-area:focused {
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+    -fx-background-color: #F4E4A6;
+}
+
+.text-area .text {
+    -fx-wrap-text: true;
+    -fx-padding: 5;
+    -fx-fill: #1B5E20;
+}
+
+/* ComboBox styling */
+.combo-box {
+    -fx-padding: 8;
+    -fx-border-color: #C9A961;
+    -fx-border-width: 2;
+    -fx-background-color: #F4E4A6;
+    -fx-font-size: 12;
+}
+
+.combo-box:focused {
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #F4E4A6;
+    -fx-border-color: #C9A961;
+}
+
+.combo-box-popup .list-view .list-cell {
+    -fx-padding: 8;
+    -fx-text-fill: #1B5E20;
+    -fx-background-color: #F4E4A6;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #E8D77E;
+}
+
+.combo-box-popup .list-view .list-cell:selected {
+    -fx-background-color: #1B5E20;
+    -fx-text-fill: #FFD700;
+}
+
+/* Spinner styling */
+.spinner {
+    -fx-padding: 6;
+    -fx-border-color: #C9A961;
+    -fx-border-width: 2;
+    -fx-background-color: #F4E4A6;
+}
+
+.spinner:focused {
+    -fx-border-color: #FFD700;
+    -fx-border-width: 2;
+}
+
+.spinner .text-field {
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+    -fx-background-color: #F4E4A6;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-padding: 4;
+    -fx-background-color: #E8D77E;
+}
+
+/* ListView styling */
+.list-view {
+    -fx-background-color: #F4E4A6;
+    -fx-border-color: #C9A961;
+    -fx-border-width: 2;
+}
+
+.list-view .list-cell {
+    -fx-padding: 10;
+    -fx-text-fill: #1B5E20;
+    -fx-font-size: 13;
+    -fx-background-color: #F4E4A6;
+}
+
+.list-view .list-cell:hover {
+    -fx-background-color: #E8D77E;
+}
+
+.list-view .list-cell:selected {
+    -fx-background-color: #1B5E20;
+    -fx-text-fill: #FFD700;
+    -fx-font-weight: bold;
+}
+
+.list-view .list-cell:focused:selected {
+    -fx-background-color: #0F3F1A;
+}
+
+/* Label styling */
+.label {
+    -fx-text-fill: #1B5E20;
+    -fx-font-size: 13;
+}
+
+.status-label {
+    -fx-text-fill: #4CAF50;
+    -fx-font-size: 12;
+}
+
+/* Separator styling */
+.separator {
+    -fx-border-color: #C9A961;
+    -fx-border-width: 2;
+}
+
+/* ImageView styling */
+.image-view {
+    -fx-border-color: #C9A961;
+    -fx-border-width: 2;
+    -fx-background-color: #F4E4A6;
+}
+
+/* VBox and HBox spacing */
+.vbox {
+    -fx-spacing: 10;
+}
+
+.hbox {
+    -fx-spacing: 10;
+}
+
+/* ScrollPane styling */
+.scroll-pane {
+    -fx-background-color: #F4E4A6;
+    -fx-border-color: #C9A961;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: #F4E4A6;
+}
+
+.scroll-bar {
+    -fx-background-color: #F4E4A6;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #C9A961;
+}
+
+/* Focused appearance */
+*:focused {
+    -fx-focus-color: #FFD700;
+    -fx-faint-focus-color: #FFD70044;
+}
+
+/* Disabled state */
+.button:disabled {
+    -fx-opacity: 0.5;
+    -fx-cursor: default;
+}
+
+.text-field:disabled,
+.text-area:disabled,
+.combo-box:disabled {
+    -fx-opacity: 0.6;
+    -fx-background-color: #E8D77E;
+}
