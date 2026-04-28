@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" spacing="12.0" style="-fx-padding: 20; -fx-background-color: #F4E4A6;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.recipe.AddRecipeController">
-   <Label text="📝 Recipe Details" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1B5E20; -fx-font-family: 'Georgia';" />
+   <Label text="Recipe Details" style="-fx-font-size: 18; -fx-font-weight: bold; -fx-text-fill: #1B5E20; -fx-font-family: 'Georgia';" />
    <Separator />
    
    <Label text="Recipe Name *" style="-fx-font-weight: bold; -fx-text-fill: #1B5E20;" />
@@ -37,14 +37,15 @@
    
    <Label text="Ingredients *" style="-fx-font-weight: bold; -fx-text-fill: #1B5E20;" />
    <TextArea fx:id="ingredientsArea" prefHeight="80.0" prefWidth="570.0" promptText="Enter ingredients (one per line)&#10;Example:&#10;- 2 cups flour&#10;- 1 egg&#10;- 1 cup milk" wrapText="true" />
-   
+
+
    <Label text="Instructions *" style="-fx-font-weight: bold; -fx-text-fill: #1B5E20;" />
    <TextArea fx:id="instructionsArea" prefHeight="80.0" prefWidth="570.0" promptText="Enter step-by-step instructions&#10;Example:&#10;1. Mix dry ingredients&#10;2. Beat egg with milk&#10;3. Combine and cook" wrapText="true" />
    
    <Separator />
    
    <HBox spacing="10.0" alignment="CENTER_LEFT">
-      <Label text="📷 Recipe Image" style="-fx-font-weight: bold; -fx-text-fill: #1B5E20;" />
+      <Label text="Recipe Image" style="-fx-font-weight: bold; -fx-text-fill: #1B5E20;" />
       <Button fx:id="uploadImageBtn" text="Upload Image" onAction="#uploadImage" />
       <Label fx:id="imagePathLabel" text="No image selected" style="-fx-text-fill: #8B7355; -fx-font-size: 11;" />
    </HBox>

@@ -1,9 +1,9 @@
 /*
-* Author: Nicole Tressler
-* Date: 26 - 04 - 26
-* Auburn University
-* CPSC 2710
-* Recipe Vault App - Final Project
+ * Author: Nicole Tressler
+ * Date: 26 - 04 - 26
+ * Auburn University
+ * CPSC 2710
+ * Recipe Vault App - Final Project
  */
 
 package com.recipe;
@@ -85,10 +85,13 @@ public class RecipeController {
         ObservableList<String> cuisines = FXCollections.observableArrayList(
                 "All Cuisines",
                 "Italian",
-                "Asian",
+                "Japanese",
                 "American",
+                "Desserts",
                 "Mexican",
                 "Indian",
+                "German",
+                "Chinese",
                 "French",
                 "Mediterranean",
                 "Other"
@@ -301,9 +304,34 @@ public class RecipeController {
                 10,
                 20,
                 4,
-                "400g spaghetti\n2 eggs\n100g guanciale\n100g parmesan\nSalt and pepper",
-                "1. Cook spaghetti in salted water\n2. Fry guanciale until crispy\n3. Mix eggs with cheese\n4. Toss pasta with guanciale fat\n5. Add egg mixture off heat\n6. Serve immediately",
+// Ingredients: each ingredient on its own line (or JSON/CSV if you prefer)
+                String.join("\n",
+                        "400 g spaghetti",
+                        "2 large eggs",
+                        "100 g guanciale (or pancetta), diced",
+                        "100 g freshly grated Parmesan (or Pecorino Romano)",
+                        "Freshly ground black pepper",
+                        "Salt (for pasta water)"
+                ),
+// Instructions: numbered steps, blank line between sections for clarity
+                String.join("\n",
+                        "1) Bring a large pot of salted water to a boil. Cook the spaghetti until al dente according to package directions.",
+                        "",
+                        "2) While pasta cooks, heat a skillet over medium heat and cook the diced guanciale until crispy and golden. Remove from heat and reserve the fat in the pan.",
+                        "",
+                        "3) In a bowl, whisk the eggs with most of the grated cheese (reserve a little for serving) and a generous amount of freshly ground black pepper.",
+                        "",
+                        "4) When the pasta is done, reserve ~1 cup of pasta cooking water, then drain the pasta.",
+                        "",
+                        "5) Add the hot pasta to the skillet with the guanciale fat (off the heat). Quickly pour the egg-and-cheese mixture over the pasta and toss vigorously to create a creamy sauce — add small amounts of reserved pasta water if needed to loosen the sauce. The residual heat will cook the eggs without scrambling them.",
+                        "",
+                        "6) Stir in the crispy guanciale, taste and adjust seasoning with salt and more pepper if needed.",
+                        "",
+                        "7) Serve immediately topped with the remaining grated cheese."
+                ),
+// imagePath (null for sample)
                 null
+
         );
         recipes.add(sample);
         saveRecipes();

@@ -1,20 +1,20 @@
 /* Recipe Vault - Custom Stylesheet */
-/* Green (#1B5E20) and Dark Brown (#2C2416) with Golden Yellow (#FFD700) Theme */
+/* Pink (#d88373), Dark Purple (#42273b) with Light Yellow (#F4E4A6) and Light Blue (#c4d7f2 )Theme */
 
 /* Root styling */
 .root {
     -fx-font-family: "Georgia", "Times New Roman", serif;
-    -fx-base: #1B5E20;
+    -fx-base: #995381;
     -fx-font-size: 13;
 }
 
 /* Main background colors */
 .main-background {
-    -fx-background-color: #1B5E20;
+    -fx-background-color: #d88373;
 }
 
 .dark-background {
-    -fx-background-color: #2C2416;
+    -fx-background-color: #42273b;
 }
 
 .light-background {
@@ -23,13 +23,13 @@
 
 /* Header and title styling */
 .header {
-    -fx-background-color: #1B5E20;
-    -fx-text-fill: #FFD700;
+    -fx-background-color: #d88373;
+    -fx-text-fill: #42273b;
     -fx-padding: 20;
 }
 
 .header-label {
-    -fx-text-fill: #FFD700;
+    -fx-text-fill: #42273b;
     -fx-font-size: 32;
     -fx-font-weight: bold;
     -fx-font-family: "Georgia", serif;
@@ -42,13 +42,13 @@
 }
 
 .recipe-title {
-    -fx-text-fill: #FFD700;
+    -fx-text-fill: #42273b;
     -fx-font-size: 20;
     -fx-font-weight: bold;
 }
 
 .section-title {
-    -fx-text-fill: #1B5E20;
+    -fx-text-fill: #d88373;
     -fx-font-size: 14;
     -fx-font-weight: bold;
 }
@@ -56,38 +56,38 @@
 /* Menu styling */
 .menu-bar {
     -fx-background-color: #2C2416;
-    -fx-text-fill: #FFD700;
+    -fx-text-fill: #42273b;
 }
 
 .menu {
-    -fx-text-fill: #FFD700;
+    -fx-text-fill: #42273b;
 }
 
 .menu:hover {
-    -fx-background-color: #1B5E20;
+    -fx-background-color: #d88373;
 }
 
 .menu-item {
     -fx-padding: 8;
-    -fx-text-fill: #FFD700;
+    -fx-text-fill: #42273b;
     -fx-background-color: #2C2416;
 }
 
 .menu-item:focused {
-    -fx-background-color: #1B5E20;
-    -fx-text-fill: #FFD700;
+    -fx-background-color: #d88373;
+    -fx-text-fill: #42273b;
 }
 
 .menu-item:hover {
-    -fx-background-color: #1B5E20;
+    -fx-background-color: #d88373;
 }
 
 /* Primary Button styling - Golden Yellow */
 .button {
     -fx-padding: 12 25 12 25;
     -fx-font-size: 13;
-    -fx-background-color: #FFD700;
-    -fx-text-fill: #1B5E20;
+    -fx-background-color: #42273b;
+    -fx-text-fill: #d88373;
     -fx-border-radius: 6;
     -fx-background-radius: 6;
     -fx-cursor: hand;
@@ -96,54 +96,57 @@
 }
 
 .button:hover {
-    -fx-background-color: #FFC700;
+    -fx-background-color: #42273b;
 }
 
 .button:pressed {
-    -fx-background-color: #FFB700;
+    -fx-background-color: #42273b;
 }
 
 .button:focused {
-    -fx-border-color: #FFD700;
+    -fx-border-color: #42273b;
     -fx-border-width: 2;
 }
 
 /* Action buttons */
 #addRecipeBtn {
-    -fx-background-color: #FFD700;
-    -fx-text-fill: #1B5E20;
+    -fx-background-color: #c4d7f2;
+    -fx-text-fill: #42273b;
 }
 
 #addRecipeBtn:hover {
-    -fx-background-color: #FFC700;
+    -fx-background-color: #c4d7f2;
+    -fx-text-fill: #42273b;
 }
 
 #editRecipeBtn {
-    -fx-background-color: #FFD700;
-    -fx-text-fill: #1B5E20;
+    -fx-background-color: #c4d7f2;
+    -fx-text-fill: #42273b;
 }
 
 #editRecipeBtn:hover {
-    -fx-background-color: #FFC700;
+    -fx-background-color: #c4d7f2;
+    -fx-text-fill: #42273b
 }
 
 #deleteRecipeBtn {
-    -fx-background-color: #D4502F;
-    -fx-text-fill: white;
+    -fx-background-color: #c4d7f2;
+    -fx-text-fill: #42273b;
 }
 
 #deleteRecipeBtn:hover {
-    -fx-background-color: #B83E23;
+    -fx-background-color: #c4d7f2;
+    -fx-text-fill: #42273b;
 }
 
 #uploadImageBtn {
-    -fx-background-color: #FFD700;
-    -fx-text-fill: #1B5E20;
+    -fx-background-color: #42273b;
+    -fx-text-fill: #d88373;
 }
 
 #saveRecipeBtn {
-    -fx-background-color: #FFD700;
-    -fx-text-fill: #1B5E20;
+    -fx-background-color: #42273b;
+    -fx-text-fill: #d88373;
 }
 
 #cancelBtn {
@@ -162,11 +165,11 @@
     -fx-border-width: 2;
     -fx-background-color: #F4E4A6;
     -fx-font-size: 12;
-    -fx-text-fill: #1B5E20;
+    -fx-text-fill: #d88373;
 }
 
 .text-field:focused {
-    -fx-border-color: #FFD700;
+    -fx-border-color: #42273b;
     -fx-border-width: 2;
     -fx-background-color: #F4E4A6;
 }
@@ -182,11 +185,11 @@
     -fx-background-color: #F4E4A6;
     -fx-font-family: "Georgia", serif;
     -fx-font-size: 12;
-    -fx-text-fill: #1B5E20;
+    -fx-text-fill: #d88373;
 }
 
 .text-area:focused {
-    -fx-border-color: #FFD700;
+    -fx-border-color: #42273b;
     -fx-border-width: 2;
     -fx-background-color: #F4E4A6;
 }
@@ -194,7 +197,7 @@
 .text-area .text {
     -fx-wrap-text: true;
     -fx-padding: 5;
-    -fx-fill: #1B5E20;
+    -fx-fill: #d88373;
 }
 
 /* ComboBox styling */
@@ -207,7 +210,7 @@
 }
 
 .combo-box:focused {
-    -fx-border-color: #FFD700;
+    -fx-border-color: #42273b;
     -fx-border-width: 2;
 }
 
@@ -218,7 +221,7 @@
 
 .combo-box-popup .list-view .list-cell {
     -fx-padding: 8;
-    -fx-text-fill: #1B5E20;
+    -fx-text-fill: #d88373;
     -fx-background-color: #F4E4A6;
 }
 
@@ -227,8 +230,8 @@
 }
 
 .combo-box-popup .list-view .list-cell:selected {
-    -fx-background-color: #1B5E20;
-    -fx-text-fill: #FFD700;
+    -fx-background-color: #d88373;
+    -fx-text-fill: #42273b;
 }
 
 /* Spinner styling */
@@ -240,7 +243,7 @@
 }
 
 .spinner:focused {
-    -fx-border-color: #FFD700;
+    -fx-border-color: #42273b;
     -fx-border-width: 2;
 }
 
@@ -265,7 +268,7 @@
 
 .list-view .list-cell {
     -fx-padding: 10;
-    -fx-text-fill: #1B5E20;
+    -fx-text-fill: #d88373;
     -fx-font-size: 13;
     -fx-background-color: #F4E4A6;
 }
@@ -275,18 +278,18 @@
 }
 
 .list-view .list-cell:selected {
-    -fx-background-color: #1B5E20;
-    -fx-text-fill: #FFD700;
+    -fx-background-color: #d88373;
+    -fx-text-fill: #42273b;
     -fx-font-weight: bold;
 }
 
 .list-view .list-cell:focused:selected {
-    -fx-background-color: #0F3F1A;
+    -fx-background-color: #d88373;
 }
 
 /* Label styling */
 .label {
-    -fx-text-fill: #1B5E20;
+    -fx-text-fill: #d88373;
     -fx-font-size: 13;
 }
 
@@ -337,7 +340,7 @@
 
 /* Focused appearance */
 *:focused {
-    -fx-focus-color: #FFD700;
+    -fx-focus-color: #42273b;
     -fx-faint-focus-color: #FFD70044;
 }
 

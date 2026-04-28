@@ -20,12 +20,15 @@ public class RecipeApp extends Application {
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainWindow.fxml"));
         BorderPane root = loader.load();
-        
+
         RecipeController controller = loader.getController();
         controller.setMainStage(primaryStage);
-        
-        primaryStage.setTitle("🏺 Recipe Vault");
-        primaryStage.setScene(new Scene(root, 1000, 700));
+
+        Scene scene = new Scene(root, 1000, 700);
+        scene.getStylesheets().add(getClass().getResource("/styles/styles.css").toExternalForm());
+
+        primaryStage.setTitle("Recipe Vault");
+        primaryStage.setScene(scene);
         primaryStage.show();
     }
 
