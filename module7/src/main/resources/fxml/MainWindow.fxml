@@ -1,64 +1,91 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.recipe.RecipeController">
-   <top>
-      <VBox prefHeight="80.0" prefWidth="1000.0" spacing="5.0" style="-fx-background-color: #d88373; -fx-padding: 15;">
-         <Label text="                          Recipe Vault" style="-fx-text-fill: #42273b; -fx-font-size: 38; -fx-font-weight: bold; -fx-font-family: 'Georgia';" />
-         <Label text="Your Collection of Culinary Treasures" style="-fx-text-fill: #42273b; -fx-font-size: 12; -fx-font-style: italic;" />
-         <HBox spacing="10.0">
-            <MenuBar style="-fx-background-color: #c4d7f2;" prefWidth="1000.0">
-               <menus>
-                  <Menu text="File">
-                     <MenuItem text="Exit" onAction="#exitApplication" accelerator="SHORTCUT+Q" />
-                  </Menu>
-                  <Menu text="Recipe">
-                     <MenuItem text="Add Recipe" onAction="#openAddRecipeWindow" accelerator="SHORTCUT+N" />
-                     <MenuItem text="Edit Recipe" onAction="#openEditRecipeWindow" accelerator="SHORTCUT+E" />
-                     <MenuItem text="Delete Recipe" onAction="#deleteRecipe" accelerator="DELETE" />
-                  </Menu>
-               </menus>
-            </MenuBar>
-         </HBox>
-      </VBox>
-   </top>
-   <left>
-      <VBox prefHeight="640.0" prefWidth="300.0" spacing="10.0" style="-fx-padding: 15; -fx-background-color: #d88373;">
-         <Label text="Search &amp; Filter" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #42273b;" />
-         <TextField fx:id="searchField" promptText="Search recipes..." />
-         <Label text="Filter by Cuisine:" style="-fx-text-fill: #42273b; -fx-font-weight: bold;" />
-         <ComboBox fx:id="cuisineFilterComboBox" prefWidth="280.0" />
-         <Separator />
-         <Label text="Your Recipes" style="-fx-font-size: 14; -fx-font-weight: bold; -fx-text-fill: #42273b;" />
-         <ListView fx:id="recipeListView" prefHeight="400.0" prefWidth="280.0" />
-         <HBox spacing="8.0">
-            <Button fx:id="addRecipeBtn" text="Add" onAction="#openAddRecipeWindow" prefWidth="85.0" />
-            <Button fx:id="editRecipeBtn" text="Edit" onAction="#openEditRecipeWindow" prefWidth="85.0" />
-            <Button fx:id="deleteRecipeBtn" text="Delete" onAction="#deleteRecipe" prefWidth="85.0" />
-         </HBox>
-      </VBox>
-   </left>
-   <center>
-      <VBox prefHeight="640.0" prefWidth="700.0" spacing="10.0" style="-fx-padding: 15; -fx-background-color: #F4E4A6;">
-         <HBox spacing="10.0" alignment="CENTER_LEFT">
-            <Label fx:id="recipeTitleLabel" text="Select a recipe to view details" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #d88373;" />
-            <Region HBox.hgrow="ALWAYS" />
-            <Label fx:id="statusLabel" style="-fx-text-fill: #d88373; -fx-font-size: 11;" />
-         </HBox>
-         <Separator />
-         <HBox spacing="15.0" prefHeight="200.0">
-            <VBox prefWidth="300.0" spacing="5.0">
-               <Label text="Recipe Image" style="-fx-font-weight: bold; -fx-font-size: 12; -fx-text-fill: #42273b;" />
-               <ImageView fx:id="recipeImageView" fitHeight="180.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true" />
+<?import javafx.scene.image.ImageView?>
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.recipe.RecipeController">
+    <style>
+        -fx-font-family: "Georgia";
+    </style>
+
+    <!-- TOP: Header -->
+    <top>
+        <VBox style="-fx-background-color: #d88373; -fx-padding: 20;">
+            <Label text="Recipe Vault" style="-fx-font-size: 32; -fx-font-weight: bold; -fx-text-fill: #42273b;"/>
+            <Label text="Your Collection of Culinary Treasures" style="-fx-font-size: 12; -fx-font-style: italic; -fx-text-fill: #42273b;"/>
+            <HBox style="-fx-padding: 10, 0, 0, 0;">
+                <MenuBar>
+                    <Menu text="File" style="-fx-text-fill: #42273b;">
+                        <MenuItem text="Exit" onAction="#exitApplication"/>
+                    </Menu>
+                    <Menu text="Recipe" style="-fx-text-fill: #42273b;">
+                        <MenuItem text="Add New (Ctrl+N)" onAction="#openAddRecipeWindow"/>
+                        <MenuItem text="Edit (Ctrl+E)" onAction="#openEditRecipeWindow"/>
+                        <MenuItem text="Delete (Delete)" onAction="#deleteRecipe"/>
+                    </Menu>
+                </MenuBar>
+            </HBox>
+        </VBox>
+    </top>
+
+    <!-- CENTER: Main content area -->
+    <center>
+        <HBox spacing="10" style="-fx-padding: 10; -fx-background-color: #F4E4A6;">
+
+            <!-- LEFT: Sidebar -->
+            <VBox spacing="10" style="-fx-background-color: #d88373; -fx-padding: 15; -fx-border-color: #42273b; -fx-border-width: 2;" VBox.vgrow="ALWAYS" HBox.hgrow="NEVER">
+                <VBox.vgrow>NEVER</VBox.vgrow>
+
+                <!-- Search -->
+                <Label text="Search &amp; Filter" style="-fx-text-fill: #42273b; -fx-font-size: 12; -fx-font-weight: bold;"/>
+                <TextField fx:id="searchField" promptText="Search recipes..." style="-fx-control-inner-background: #F4E4A6; -fx-text-fill: #42273b;"/>
+
+                <!-- Filter -->
+                <Label text="Filter by Cuisine:" style="-fx-text-fill: #42273b; -fx-font-size: 12; -fx-font-weight: bold;"/>
+                <ComboBox fx:id="cuisineFilterComboBox" style="-fx-control-inner-background: #F4E4A6; -fx-text-fill: #42273b;"/>
+
+                <Separator style="-fx-border-color: #42273b;"/>
+
+                <!-- Recipe List -->
+                <Label text="Your Recipes" style="-fx-text-fill: #42273b; -fx-font-size: 12; -fx-font-weight: bold;"/>
+                <ListView fx:id="recipeListView" style="-fx-control-inner-background: #F4E4A6; -fx-text-fill: #42273b; -fx-border-color: #42273b; -fx-border-width: 2;" VBox.vgrow="ALWAYS"/>
+
+                <!-- Buttons -->
+                <HBox spacing="5">
+                    <Button fx:id="addRecipeBtn" text="Add" onAction="#openAddRecipeWindow" style="-fx-background-color: #c4d7f2; -fx-text-fill: #42273b; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="editRecipeBtn" text="Edit" onAction="#openEditRecipeWindow" style="-fx-background-color: #c4d7f2; -fx-text-fill: #42273b; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="deleteRecipeBtn" text="Delete" onAction="#deleteRecipe" style="-fx-background-color: #c4d7f2; -fx-text-fill: #42273b; -fx-font-weight: bold;" HBox.hgrow="ALWAYS"/>
+                </HBox>
             </VBox>
-            <TextArea fx:id="recipeDetailsArea" prefHeight="200.0" prefWidth="400.0" wrapText="true" editable="false" />
-         </HBox>
-         <Separator />
-         <TextArea prefHeight="150.0" promptText="Recipe details will appear here..." wrapText="true" editable="false" />
-      </VBox>
-   </center>
+
+            <!-- RIGHT: Recipe Details -->
+            <VBox spacing="10" style="-fx-background-color: #F4E4A6; -fx-padding: 15; -fx-border-color: #42273b; -fx-border-width: 2;" HBox.hgrow="ALWAYS" VBox.vgrow="ALWAYS">
+
+                <!-- Recipe Title and Status -->
+                <HBox spacing="10">
+                    <Label fx:id="recipeTitleLabel" text="Select a Recipe" style="-fx-text-fill: #42273b; -fx-font-size: 18; -fx-font-weight: bold;"/>
+                    <Label fx:id="statusLabel" style="-fx-text-fill: #d88373; -fx-font-size: 11;" HBox.hgrow="ALWAYS"/>
+                </HBox>
+
+                <Separator style="-fx-border-color: #42273b; -fx-border-width: 2;"/>
+
+                <!-- Recipe Content -->
+                <HBox spacing="10" VBox.vgrow="ALWAYS">
+
+                    <!-- Image -->
+                    <VBox style="-fx-padding: 10; -fx-border-color: #42273b; -fx-border-width: 2;">
+                        <Label text="Recipe Image" style="-fx-text-fill: #42273b; -fx-font-weight: bold; -fx-font-size: 11;"/>
+                        <ImageView fx:id="recipeImageView" fitWidth="200" fitHeight="200" preserveRatio="true" style="-fx-border-color: #42273b; -fx-border-width: 1;"/>
+                    </VBox>
+
+                    <!-- Info and Details -->
+                    <VBox spacing="5" HBox.hgrow="ALWAYS">
+                        <TextArea fx:id="recipeDetailsArea" wrapText="true" style="-fx-control-inner-background: #F4E4A6; -fx-text-fill: #42273b; -fx-font-size: 11; -fx-border-color: #42273b; -fx-border-width: 2; -fx-padding: 10;" VBox.vgrow="ALWAYS"/>
+                    </VBox>
+                </HBox>
+            </VBox>
+        </HBox>
+    </center>
 </BorderPane>
