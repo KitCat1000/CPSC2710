@@ -1,11 +1,3 @@
-/*
- * Author: Nicole Tressler
- * Date: 26 - 04 - 26
- * Auburn University
- * CPSC 2710
- * Recipe Vault App - Final Project
- */
-
 package com.recipe;
 
 import javafx.fxml.FXML;
@@ -22,6 +14,8 @@ import javafx.stage.FileChooser;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class RecipeController {
 
@@ -79,6 +73,8 @@ public class RecipeController {
 
         // Setup search
         searchField.setOnKeyReleased(e -> filterRecipes());
+
+        // Note: global scene key handlers are installed in RecipeApp when the Scene is created.
     }
 
     private void setupCuisineFilter() {
@@ -140,7 +136,7 @@ public class RecipeController {
     }
 
     @FXML
-    private void openAddRecipeWindow() {
+    public void openAddRecipeWindow() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddRecipeWindow.fxml"));
             VBox root = loader.load();
@@ -160,7 +156,7 @@ public class RecipeController {
     }
 
     @FXML
-    private void openEditRecipeWindow() {
+    public void openEditRecipeWindow() {
         Recipe selected = recipeListView.getSelectionModel().getSelectedItem();
         if (selected == null) {
             showAlert("Info", "Please select a recipe to edit.");
@@ -187,7 +183,7 @@ public class RecipeController {
     }
 
     @FXML
-    private void deleteRecipe() {
+    public void deleteRecipe() {
         Recipe selected = recipeListView.getSelectionModel().getSelectedItem();
         if (selected == null) {
             showAlert("Info", "Please select a recipe to delete.");
@@ -210,7 +206,7 @@ public class RecipeController {
     }
 
     @FXML
-    private void exitApplication() {
+    public void exitApplication() {
         Stage stage = (Stage) recipeListView.getScene().getWindow();
         stage.close();
     }
@@ -304,7 +300,6 @@ public class RecipeController {
                 10,
                 20,
                 4,
-// Ingredients: each ingredient on its own line (or JSON/CSV if you prefer)
                 String.join("\n",
                         "400 g spaghetti",
                         "2 large eggs",
@@ -313,7 +308,6 @@ public class RecipeController {
                         "Freshly ground black pepper",
                         "Salt (for pasta water)"
                 ),
-// Instructions: numbered steps, blank line between sections for clarity
                 String.join("\n",
                         "1) Bring a large pot of salted water to a boil. Cook the spaghetti until al dente according to package directions.",
                         "",
@@ -329,9 +323,7 @@ public class RecipeController {
                         "",
                         "7) Serve immediately topped with the remaining grated cheese."
                 ),
-// imagePath (null for sample)
                 null
-
         );
         recipes.add(sample);
         saveRecipes();
@@ -348,4 +340,5 @@ public class RecipeController {
     public void setMainStage(Stage stage) {
         this.mainStage = stage;
     }
+
 }

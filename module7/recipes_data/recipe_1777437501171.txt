@@ -1,0 +1,7 @@
+test recipe file
+Italian
+15
+30
+4
+x y z		
+x y z
