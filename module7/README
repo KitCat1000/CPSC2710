@@ -1,41 +1,209 @@
-Inspiration:
-The inspiration for Recipe Vault came from having recipes scattered everywhere —
-tucked into my computer's bookmarks, buried in notes apps, written on scraps of paper, or half-remembered from a YouTube video.
-I wanted a single, dedicated place to save and organize recipes that I actually cook, something that felt personal
-and pleasant to use rather than just another generic list.
-My "Recipe Vault" project was built to solve that problem by keeping my recipes organized for easy access.
+# Recipe Vault
 
-~~~~
+---
 
-Vision
-The vision for Recipe Vault is to be a clean, user-friendly, elegant desktop recipe manager that
-feels like a personal cookbook you actually enjoy opening. Rather than relying on an internet connection
-or a subscription, all recipes are stored locally on your machine. The application vision includes:
+## Inspiration
+
+The inspiration for Recipe Vault came from having recipes scattered everywhere — tucked into my computer's bookmarks, buried in notes apps, written on scraps of paper, or half-remembered from a YouTube video. I wanted a single, dedicated place to save and organize recipes that I actually cook, something that felt personal and pleasant to use rather than just another generic list. My "Recipe Vault" project was built to solve that problem by keeping my recipes organized for easy access.
+
+---
+
+## Vision
+
+The vision for Recipe Vault is to be a clean, user-friendly, elegant desktop recipe manager that feels like a personal cookbook you actually enjoy opening. Rather than relying on an internet connection or a subscription, all recipes are stored locally on your machine. The application vision includes:
 
 - A full recipe library organized by cuisine type and searchable by ingredient or name
 - Rich recipe cards with photos, prep/cook times, and serving sizes
 - The ability to add, edit, and delete recipes through a polished, intuitive interface
 
-~~~~
+> Screenshots of the project are included at the end of this README.
 
-Basic Functionality
+---
+
+## Basic Functionality
 
 Recipe Vault currently supports the following core features:
 
 - Browse recipes from a sidebar list view, with details displayed on the right panel
 - Search recipes by name or ingredient using the live search bar
 - Filter by cuisine (Italian, Japanese, American, Desserts, German, Chinese, French, Mediterranean, Other) via a dropdown menu
-- Add new recipes through a dedicated second window, including name, cuisine, prep time, cook time,
-  servings, ingredients, instructions, and an optional photo
+- Add new recipes through a dedicated second window, including name, cuisine, prep time, cook time, servings, ingredients, instructions, and an optional photo
 - Edit existing recipes by selecting one from the list and opening the same Add/Edit window pre-populated with saved data
 - Delete recipes with a confirmation dialog to prevent accidental removal
 - View recipe photos alongside the details panel when an image has been uploaded
-- Persist recipes between sessions — all data is saved to local .txt files in a recipes_data/ folder, and images are
-  copied into a recipe_images/ folder
+- Persist recipes between sessions — all data is saved to local `.txt` files in a `recipes_data/` folder, and images are copied into a `recipe_images/` folder
 
+---
 
-The application also includes keyboard shortcuts:
+## How to Use
 
-    CTRL + N = opens a window for adding a new recipe
-    CTRL + E = opens a window to edit the selected recipe
+### Prerequisites
 
+- Java 21 or newer
+- JavaFX 21+ (included via Maven dependencies)
+- Maven (or use the included `mvnw` wrapper)
+
+### Running the Application
+
+**macOS:**
+```bash
+# Clone or unzip the project, then navigate to the project root
+cd module7
+
+# Run using the Maven wrapper
+./mvnw javafx:run
+```
+
+**Windows:**
+```cmd
+mvnw.cmd javafx:run
+```
+
+This will open the application directly into the Recipe Vault main window.
+
+---
+
+### Main Window Layout
+
+**Left side:**
+- Button labeled **"File"** — for exiting the app
+- Button labeled **"Recipe"** — lists keyboard shortcuts
+- Recipe search bar
+- Filter by Cuisine dropdown
+- List of recipes in the app
+- **Add**, **Edit**, and **Delete** buttons
+
+**Right side:**
+- Details of the selected recipe
+- Recipe image (if one has been added)
+
+---
+
+### Adding a Recipe
+
+1. Click the **Add** button in the sidebar, or use `Ctrl+N` (Windows/Linux) / `Cmd+N` (Mac)
+2. Fill in the recipe name, select a cuisine, and set prep time, cook time, and servings using the spinners
+3. Enter ingredients (one per line) and step-by-step instructions
+4. Optionally click **Upload Image** to attach a photo
+5. Click **Save Recipe** to add it to your collection
+
+### Editing a Recipe
+
+1. Select a recipe from the list
+2. Click **Edit** or press `Ctrl+E` / `Cmd+E`
+3. The Add/Edit window opens pre-filled — make your changes and click **Save Recipe**
+
+### Deleting a Recipe
+
+1. Select a recipe from the list
+2. Click **Delete** or press the `Delete` key
+3. Confirm the deletion in the dialog — **this cannot be undone**
+
+---
+
+### Keyboard Shortcuts
+
+| Shortcut | Action |
+|---|---|
+| `Ctrl/Cmd + N` | Open the Add New Recipe window |
+| `Ctrl/Cmd + E` | Open the Edit Recipe window |
+| `Ctrl/Cmd + Backspace` | Delete the selected recipe (cannot be undone) |
+| `Ctrl/Cmd + Q` | Quit / exit the program |
+
+The **Recipe** menu button at the top also lists all keyboard shortcuts. The **File** button allows exiting the program via mouse as an alternative — useful if keys get stuck, lose their function, or the user simply prefers not to use keyboard shortcuts.
+
+---
+
+## Incomplete Features 
+
+- Needs additional windows for adding a recipe that include image buttons to select food type
+- Needs a more polished overall appearance — including color scheming, font size, and button shapes
+- A print/export function for printing or saving recipes as a PDF
+
+---
+
+## All Requirements Met
+
+### Controls Reference
+
+The application meets the 10-control / 4-type requirement across its two windows.
+
+**Main Window**
+
+| Control | Description |
+|---|---|
+| `ListView` | Scrollable recipe list |
+| `TextField` | Live search bar |
+| `ComboBox` | Cuisine filter dropdown |
+| `Button` × 3 | Add, Edit, Delete |
+| `TextArea` | Read-only recipe details display |
+| `ImageView` | Recipe photo display |
+| `Label` × multiple | Title, subtitle, status feedback |
+| `MenuBar / Menu / MenuItem` | File and Recipe menus with keyboard shortcuts |
+| `Separator` | Visual divider between search and list sections |
+
+**Add/Edit Recipe Window**
+
+| Control | Description |
+|---|---|
+| `TextField` | Recipe name input |
+| `ComboBox` | Cuisine selector |
+| `Spinner` × 3 | Prep time, cook time, servings |
+| `TextArea` × 2 | Ingredients and instructions |
+| `Button` × 3 | Upload Image, Save Recipe, Cancel |
+| `Label` × multiple | Field labels and image path indicator |
+
+**Unique control types used:** `Button`, `TextField`, `TextArea`, `ComboBox`, `Spinner`, `ListView`, `ImageView`, `Label`, `MenuBar/MenuItem`, `Separator` — well over four unique types.
+
+---
+
+### Style & Theme
+
+Recipe Vault uses a custom CSS stylesheet (`styles/styles.css`) with a pastel color palette:
+
+| Color | Hex | Usage |
+|---|---|---|
+| Terracotta Pink | `#d88373` | Header, sidebar backgrounds, accent text |
+| Deep Plum | `#42273b` | Text, borders, dark accents |
+| Warm Cream | `#F4E4A6` | Main background, list and textarea interiors |
+| Soft Blue | `#c4d7f2` | All action buttons |
+
+The font family is **Georgia** (serif), giving the app a warm, book-like feel.
+
+---
+
+### Windows
+
+The application has two windows:
+
+1. **Main Window** (`MainWindow.fxml`) — the primary recipe browser, search, filter, and detail viewer. Opens on launch.
+2. **Add/Edit Recipe Window** (`AddRecipeWindow.fxml`) — a focused data-entry form that opens modally when the user adds or edits a recipe. It closes automatically after saving or cancelling.
+
+The second window is opened via button click (Add / Edit) or the corresponding keyboard shortcuts.
+
+---
+
+## Implemented Features 
+
+- [x] Recipe list with persistent local storage (`.txt` files)
+- [x] Live search by recipe name or ingredient
+- [x] Filter by cuisine type
+- [x] Add new recipe window with full form (name, cuisine, times, servings, ingredients, instructions, image)
+- [x] Edit existing recipes (form pre-populated with saved data)
+- [x] Delete recipe with confirmation dialog
+- [x] Recipe photo upload and display
+- [x] Two-window FXML-based interface (Scene Builder)
+- [x] Custom CSS color theme (terracotta / plum / cream)
+- [x] Menu bar with keyboard shortcuts (`Ctrl+N`, `Ctrl+E`, `Delete`, `Ctrl+Q`)
+- [x] Sample recipe pre-loaded on first launch (Spaghetti Carbonara)
+- [x] Status bar feedback on add/edit/delete actions
+
+---
+
+## Screenshots
+
+![Screenshot 1](screenshots/Screenshot1.png)
+![Screenshot 2](screenshots/Screenshot2.png)
+![Screenshot 3](screenshots/Screenshot3.png)
+![Screenshot 4](screenshots/Screenshot4.png)
+![Screenshot 5](screenshots/Screenshot5.png)
