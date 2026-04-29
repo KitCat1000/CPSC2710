@@ -1,0 +1,41 @@
+Inspiration:
+The inspiration for Recipe Vault came from having recipes scattered everywhere —
+tucked into my computer's bookmarks, buried in notes apps, written on scraps of paper, or half-remembered from a YouTube video.
+I wanted a single, dedicated place to save and organize recipes that I actually cook, something that felt personal
+and pleasant to use rather than just another generic list.
+My "Recipe Vault" project was built to solve that problem by keeping my recipes organized for easy access.
+
+~~~~
+
+Vision
+The vision for Recipe Vault is to be a clean, user-friendly, elegant desktop recipe manager that
+feels like a personal cookbook you actually enjoy opening. Rather than relying on an internet connection
+or a subscription, all recipes are stored locally on your machine. The application vision includes:
+
+- A full recipe library organized by cuisine type and searchable by ingredient or name
+- Rich recipe cards with photos, prep/cook times, and serving sizes
+- The ability to add, edit, and delete recipes through a polished, intuitive interface
+
+~~~~
+
+Basic Functionality
+
+Recipe Vault currently supports the following core features:
+
+- Browse recipes from a sidebar list view, with details displayed on the right panel
+- Search recipes by name or ingredient using the live search bar
+- Filter by cuisine (Italian, Japanese, American, Desserts, German, Chinese, French, Mediterranean, Other) via a dropdown menu
+- Add new recipes through a dedicated second window, including name, cuisine, prep time, cook time,
+  servings, ingredients, instructions, and an optional photo
+- Edit existing recipes by selecting one from the list and opening the same Add/Edit window pre-populated with saved data
+- Delete recipes with a confirmation dialog to prevent accidental removal
+- View recipe photos alongside the details panel when an image has been uploaded
+- Persist recipes between sessions — all data is saved to local .txt files in a recipes_data/ folder, and images are
+  copied into a recipe_images/ folder
+
+
+The application also includes keyboard shortcuts:
+
+    CTRL + N = opens a window for adding a new recipe
+    CTRL + E = opens a window to edit the selected recipe
+

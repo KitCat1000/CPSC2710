@@ -35,7 +35,8 @@ public class RecipeApp extends Application {
                     controller.openAddRecipeWindow(); event.consume();
                 } else if (shortcutDown && event.getCode() == KeyCode.E) {
                     controller.openEditRecipeWindow(); event.consume();
-                } else if (event.getCode() == KeyCode.DELETE) {
+                } else if (event.getCode() == KeyCode.DELETE ||
+                        (shortcutDown && event.getCode() == KeyCode.BACK_SPACE)) {
                     controller.deleteRecipe(); event.consume();
                 } else if (shortcutDown && event.getCode() == KeyCode.Q) {
                     controller.exitApplication(); event.consume();
@@ -44,11 +45,10 @@ public class RecipeApp extends Application {
                 ex.printStackTrace();
             }
         });
-
         // Create a MenuBar with accelerators but DO NOT add it to the scene graph.
 
         MenuBar accelBar = new MenuBar();
-        accelBar.setVisible(false); 
+        accelBar.setVisible(false);
 
         Menu accelMenu = new Menu("accels");
 
@@ -67,6 +67,12 @@ public class RecipeApp extends Application {
         MenuItem deleteAccel = new MenuItem("Delete");
         deleteAccel.setAccelerator(KeyCombination.keyCombination("DELETE"));
         deleteAccel.setOnAction(e -> {
+            try { controller.deleteRecipe(); } catch (Exception ex) { ex.printStackTrace(); }
+        });
+
+        MenuItem deleteBackspaceAccel = new MenuItem("DeleteBackspace");
+        deleteBackspaceAccel.setAccelerator(KeyCombination.keyCombination("SHORTCUT+BACK_SPACE"));
+        deleteBackspaceAccel.setOnAction(e -> {
             try { controller.deleteRecipe(); } catch (Exception ex) { ex.printStackTrace(); }
         });
 
