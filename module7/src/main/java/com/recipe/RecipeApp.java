@@ -1,3 +1,11 @@
+/*
+ * Author: Nicole Tressler
+ * Date: 26 - 04 - 26
+ * Auburn University
+ * CPSC 2710
+ * Recipe Vault App - Final Project
+ */
+
 package com.recipe;
 
 import javafx.application.Application;

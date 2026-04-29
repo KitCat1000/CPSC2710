@@ -1,3 +1,11 @@
+/*
+ * Author: Nicole Tressler
+ * Date: 26 - 04 - 26
+ * Auburn University
+ * CPSC 2710
+ * Recipe Vault App - Final Project
+ */
+
 package com.recipe;
 
 import javafx.fxml.FXML;
@@ -289,7 +297,7 @@ public class RecipeController {
             for (Recipe recipe : recipes) {
                 String filename = RECIPES_DIR + "/" + recipe.getId() + ".txt";
 
-                // Use ||| as delimiter to separate fields
+
                 StringBuilder content = new StringBuilder();
                 content.append(recipe.getName()).append("|||");
                 content.append(recipe.getCuisine()).append("|||");
