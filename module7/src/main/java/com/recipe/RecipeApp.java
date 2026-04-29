@@ -46,9 +46,9 @@ public class RecipeApp extends Application {
         });
 
         // Create a MenuBar with accelerators but DO NOT add it to the scene graph.
-        // This registers accelerators with the scene without altering the UI layout.
+
         MenuBar accelBar = new MenuBar();
-        accelBar.setVisible(false); // not necessary since it won't be attached, but keep for clarity
+        accelBar.setVisible(false); 
 
         Menu accelMenu = new Menu("accels");
 
@@ -79,7 +79,7 @@ public class RecipeApp extends Application {
         accelMenu.getItems().addAll(addAccel, editAccel, deleteAccel, quitAccel);
         accelBar.getMenus().add(accelMenu);
 
-        // DO NOT attach accelBar to root; accelerators remain registered with the scene.
+
 
         primaryStage.setTitle("Recipe Vault");
         primaryStage.setScene(scene);
