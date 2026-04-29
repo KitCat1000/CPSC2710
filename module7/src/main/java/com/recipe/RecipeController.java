@@ -124,8 +124,6 @@ public class RecipeController {
                 "Japanese",
                 "American",
                 "Desserts",
-                "Mexican",
-                "Indian",
                 "German",
                 "Chinese",
                 "French",
@@ -290,14 +288,16 @@ public class RecipeController {
 
             for (Recipe recipe : recipes) {
                 String filename = RECIPES_DIR + "/" + recipe.getId() + ".txt";
+
+                // Use ||| as delimiter to separate fields
                 StringBuilder content = new StringBuilder();
-                content.append(recipe.getName()).append("\n");
-                content.append(recipe.getCuisine()).append("\n");
-                content.append(recipe.getPrepTime()).append("\n");
-                content.append(recipe.getCookTime()).append("\n");
-                content.append(recipe.getServings()).append("\n");
-                content.append(recipe.getIngredients()).append("\n");
-                content.append(recipe.getInstructions()).append("\n");
+                content.append(recipe.getName()).append("|||");
+                content.append(recipe.getCuisine()).append("|||");
+                content.append(recipe.getPrepTime()).append("|||");
+                content.append(recipe.getCookTime()).append("|||");
+                content.append(recipe.getServings()).append("|||");
+                content.append(recipe.getIngredients()).append("|||");
+                content.append(recipe.getInstructions()).append("|||");
                 content.append(recipe.getImagePath() != null ? recipe.getImagePath() : "");
 
                 Files.write(Paths.get(filename), content.toString().getBytes());
@@ -329,22 +329,26 @@ public class RecipeController {
 
     private void loadRecipeFromFile(File file) {
         try {
-            String[] lines = new String(Files.readAllBytes(file.toPath())).split("\n");
-            if (lines.length >= 8) {
+            String content = new String(Files.readAllBytes(file.toPath()));
+
+            // Split by ||| delimiter instead of newlines
+            String[] parts = content.split("\\|\\|\\|");
+
+            if (parts.length >= 8) {
                 Recipe recipe = new Recipe(
                         file.getName().replace(".txt", ""),
-                        lines[0],
-                        lines[1],
-                        Integer.parseInt(lines[2]),
-                        Integer.parseInt(lines[3]),
-                        Integer.parseInt(lines[4]),
-                        lines[5],
-                        lines[6],
-                        lines.length > 7 && !lines[7].isEmpty() ? lines[7] : null
+                        parts[0],                    // name
+                        parts[1],                    // cuisine
+                        Integer.parseInt(parts[2]), // prepTime
+                        Integer.parseInt(parts[3]), // cookTime
+                        Integer.parseInt(parts[4]), // servings
+                        parts[5],                    // ingredients (with newlines!)
+                        parts[6],                    // instructions (with newlines!)
+                        parts.length > 7 && !parts[7].isEmpty() ? parts[7] : null  // imagePath
                 );
                 recipes.add(recipe);
             }
-        } catch (IOException e) {
+        } catch (Exception e) {
             System.out.println("Error loading recipe from file: " + e.getMessage());
         }
     }

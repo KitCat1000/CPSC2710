@@ -64,8 +64,6 @@ public class AddRecipeController {
                 "Japanese",
                 "American",
                 "Desserts",
-                "Mexican",
-                "Indian",
                 "German",
                 "Chinese",
                 "French",

@@ -1,26 +1,18 @@
-Spaghetti Carbonara
-Italian
-10
-20
-4
-Pasta: 200g (7 oz) dry spaghetti.
-Cured Pork: 100g (3.5 oz) Guanciale (cured pork cheek) is traditional, but Pancetta or thick-cut bacon are common substitutes.
-Eggs: 3 large egg yolks (use room temperature eggs for easier emulsifying).
-Cheese: 60g (about 1 cup) finely grated Pecorino Romano, or a 50/50 mix with Parmigiano Reggiano.
-Seasoning: Lots of freshly cracked black pepper and a pinch of salt.
-Prep the Sauce Base: In a medium bowl, whisk the egg yolks with the grated cheese and plenty of black pepper until it forms a thick, smooth paste.
+Spaghetti Carbonara|||Italian|||10|||20|||4|||400 g spaghetti
+2 large eggs
+100 g guanciale (or pancetta), diced
+100 g freshly grated Parmesan (or Pecorino Romano)
+Freshly ground black pepper
+Salt (for pasta water)|||1) Bring a large pot of salted water to a boil. Cook the spaghetti until al dente according to package directions.
 
-Cook the Meat: Cut your guanciale or pancetta into small batons. Place them in a large skillet over medium-low heat. Cook until the fat has rendered and the pork is golden and crispy (about 5–8 minutes). 
+2) While pasta cooks, heat a skillet over medium heat and cook the diced guanciale until crispy and golden. Remove from heat and reserve the fat in the pan.
 
-Turn off the heat but keep the skillet on the stove.
+3) In a bowl, whisk the eggs with most of the grated cheese (reserve a little for serving) and a generous amount of freshly ground black pepper.
 
-Boil the Pasta: Bring a large pot of lightly salted water to a boil and cook the spaghetti until al dente.
+4) When the pasta is done, reserve ~1 cup of pasta cooking water, then drain the pasta.
 
-Save the Water: Just before draining, reserve at least 1 cup of the starchy pasta cooking water. This is essential for the sauce's silkiness.
+5) Add the hot pasta to the skillet with the guanciale fat (off the heat). Quickly pour the egg-and-cheese mixture over the pasta and toss vigorously to create a creamy sauce — add small amounts of reserved pasta water if needed to loosen the sauce. The residual heat will cook the eggs without scrambling them.
 
-Emulsify the Sauce: Use tongs to move the hot pasta directly from the pot into the skillet with the crispy meat and rendered fat. Toss to coat.
+6) Stir in the crispy guanciale, taste and adjust seasoning with salt and more pepper if needed.
 
-The "Cream" Moment: With the skillet off the heat, slowly pour in the egg and cheese mixture. Stir and toss vigorously. Gradually add small splashes of the reserved pasta water (a tablespoon at a time) until the cheese melts and the eggs create a glossy, creamy sauce that coats every strand.
-
-Finish & Serve: Serve immediately with an extra dusting of cheese and more black pepper on top.
-recipe_images/800f1d50-16ad-4a9a-8b4a-e219cf38b4df_Screenshot 2026-04-28 at 12.02.07 AM.png
+7) Serve immediately topped with the remaining grated cheese.|||recipe_images/fd4d4152-1ff8-417f-bff8-98668f044216_Screenshot 2026-04-28 at 12.02.07 AM.png
