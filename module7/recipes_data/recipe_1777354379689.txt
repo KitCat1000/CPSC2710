@@ -1,5 +1,5 @@
 Blueberry Cake
-Other
+Desserts
 60
 45
 8
@@ -26,4 +26,5 @@ Add Berries: Gently fold in the floured blueberries.
 Fold Egg Whites: In a separate clean bowl, beat the egg whites until soft peaks form. Gradually add the remaining ¼ cup of sugar, beating until stiff peaks form. Gently fold these whites into the cake batter to keep it light.
 
 Bake: Pour the batter into the pan and sprinkle the top with an extra tablespoon of sugar for a crunchy finish. Bake for 45–50 minutes or until a toothpick comes out clean
-recipe_images/b26c8cfb-95b5-407b-a029-9cf532aa9315_Screenshot 2026-04-28 at 12.31.12 AM.png
+
+recipe_images/a7e53644-8e44-4ea9-a7e5-c19d4b80b8f2_Screenshot 2026-04-28 at 12.31.12 AM.png

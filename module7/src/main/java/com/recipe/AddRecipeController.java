@@ -60,7 +60,17 @@ public class AddRecipeController {
     public void initialize() {
         // Setup cuisine dropdown
         cuisineComboBox.getItems().addAll(
-                "Italian", "Asian", "American", "Mexican", "Indian", "French", "Mediterranean", "Other"
+                "Italian",
+                "Japanese",
+                "American",
+                "Desserts",
+                "Mexican",
+                "Indian",
+                "German",
+                "Chinese",
+                "French",
+                "Mediterranean",
+                "Other"
         );
         cuisineComboBox.setValue("Italian");
 
