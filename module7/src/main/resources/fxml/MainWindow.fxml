@@ -30,11 +30,11 @@
             </font></Label>
             <Label prefHeight="15.0" prefWidth="1032.0" style="-fx-font-size: 12; -fx-font-style: italic; -fx-text-fill: #42273b;" text="                                                                                                                                       Your Collection of Culinary Treasures" />
             <HBox style="-fx-padding: 10, 0, 0, 0;">
-                <MenuBar prefHeight="28.0" prefWidth="114.0">
-                    <Menu style="-fx-text-fill: #42273b;" text="File">
+                <MenuBar prefHeight="28.0" prefWidth="114.0" style="-fx-background-color: #c4d7f2;">
+                    <Menu style="-fx-text-fill: #42273b; -fx-background-color: #c4d7f2;" text="File">
                         <MenuItem onAction="#exitApplication" text="Exit" />
                     </Menu>
-                    <Menu style="-fx-text-fill: #42273b;" text="Recipe">
+                    <Menu style="-fx-text-fill: #42273b; -fx-background-color: #c4d7f2;" text="Recipe">
                         <MenuItem onAction="#openAddRecipeWindow" text="Add New (Ctrl+N)" />
                         <MenuItem onAction="#openEditRecipeWindow" text="Edit (Ctrl+E)" />
                         <MenuItem onAction="#deleteRecipe" text="Delete (Delete)" />

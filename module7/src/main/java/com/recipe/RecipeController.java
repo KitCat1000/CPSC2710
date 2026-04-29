@@ -16,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 
 public class RecipeController {
 
@@ -53,6 +54,15 @@ public class RecipeController {
     private Stage mainStage;
     private final String RECIPES_DIR = "recipes_data";
 
+    // Keep references to filters so we can add/remove them reliably
+    private final javafx.event.EventHandler<KeyEvent> consumeKeyEvents = evt -> evt.consume();
+    private final javafx.event.EventHandler<MouseEvent> consumeMouseEvents = evt -> {
+        // Allow selection/copy via context menu by only consuming primary-button presses that would place caret
+        if (evt.isPrimaryButtonDown()) {
+            evt.consume();
+        }
+    };
+
     @FXML
     public void initialize() {
         recipes = FXCollections.observableArrayList();
@@ -61,10 +71,40 @@ public class RecipeController {
         // Load recipes from storage
         loadRecipes();
 
-        // Listen for recipe selection
+        // Make details read-only by default and prevent editing via keyboard/mouse
+        recipeDetailsArea.setEditable(false);
+        recipeDetailsArea.setFocusTraversable(false);
+        recipeDetailsArea.addEventFilter(KeyEvent.ANY, consumeKeyEvents);
+        recipeDetailsArea.addEventFilter(MouseEvent.ANY, consumeMouseEvents);
+
+        // Listen for recipe selection — only display details
         recipeListView.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
             if (newVal != null) {
                 displayRecipeDetails(newVal);
+            } else {
+                recipeTitleLabel.setText("No Recipe Selected");
+                recipeDetailsArea.clear();
+                recipeImageView.setImage(null);
+            }
+        });
+
+        // Double-click shows details (not edit) and Enter shows details.
+        recipeListView.setOnMouseClicked(evt -> {
+            if (evt.getClickCount() == 2) {
+                Recipe sel = recipeListView.getSelectionModel().getSelectedItem();
+                if (sel != null) {
+                    displayRecipeDetails(sel);
+                }
+            }
+        });
+
+        recipeListView.setOnKeyPressed(evt -> {
+            if (evt.getCode() == KeyCode.ENTER) {
+                Recipe sel = recipeListView.getSelectionModel().getSelectedItem();
+                if (sel != null) {
+                    displayRecipeDetails(sel);
+                    evt.consume();
+                }
             }
         });
 
@@ -132,6 +172,8 @@ public class RecipeController {
             } catch (Exception e) {
                 System.out.println("Could not load image: " + e.getMessage());
             }
+        } else {
+            recipeImageView.setImage(null);
         }
     }
 
@@ -171,11 +213,26 @@ public class RecipeController {
             controller.setMainController(this);
             controller.loadRecipe(selected);
 
+            // Optional: allow inline details editing while edit window is open
+            setDetailsEditableInline(false); // keep read-only; editing occurs in the edit window
+
             Stage stage = new Stage();
             stage.setTitle("Edit Recipe");
             stage.setScene(new Scene(root, 600, 700));
             stage.setResizable(false);
             stage.showAndWait();
+
+            // After edit window closes, refresh list and re-display selected recipe (if still present)
+            recipeListView.refresh();
+            Recipe maybeUpdated = recipes.stream().filter(r -> r.getId().equals(selected.getId())).findFirst().orElse(null);
+            if (maybeUpdated != null) {
+                recipeListView.getSelectionModel().select(maybeUpdated);
+                displayRecipeDetails(maybeUpdated);
+            } else {
+                recipeTitleLabel.setText("No Recipe Selected");
+                recipeDetailsArea.clear();
+                recipeImageView.setImage(null);
+            }
 
         } catch (IOException e) {
             showAlert("Error", "Could not open Edit Recipe window: " + e.getMessage());
@@ -341,4 +398,16 @@ public class RecipeController {
         this.mainStage = stage;
     }
 
+    // Public helper to toggle inline editability (keeps default behavior: editing only via Edit window)
+    public void setDetailsEditableInline(boolean editable) {
+        recipeDetailsArea.setEditable(editable);
+        recipeDetailsArea.setFocusTraversable(editable);
+        if (editable) {
+            recipeDetailsArea.removeEventFilter(KeyEvent.ANY, consumeKeyEvents);
+            recipeDetailsArea.removeEventFilter(MouseEvent.ANY, consumeMouseEvents);
+        } else {
+            recipeDetailsArea.addEventFilter(KeyEvent.ANY, consumeKeyEvents);
+            recipeDetailsArea.addEventFilter(MouseEvent.ANY, consumeMouseEvents);
+        }
+    }
 }
